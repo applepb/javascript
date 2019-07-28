@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+
+<body>
+Enter Only Numbers: 
+<input id="onlynumbers" type="text">
+<br><br>
+Enter Only Alphabets: 
+<input id="onlyalpha" type="text" >
+<br><br>
+Enter other than Alphabets and numbers like special characters: 
+<input id="speclchar" type="text" >
+
+<script>
+	
+    document.getElementById("onlynumbers").onkeypress = function(e) {onlyNumbers(e.key,e)};
+    
+    document.getElementById("onlyalpha").onkeypress = function(e) {onlyAlpha(e.key,e)};
+    
+    document.getElementById("speclchar").onkeypress = function(e) {speclChar(e.key,e)};
+    
+    function onlyNumbers(key,e) {
+      var letters=/^[0-9]/g; //g means global
+      if(!(key).match(letters)) e.preventDefault();
+	}
+    
+    function onlyAlpha(key,e) {
+      var letters=/^[a-z]/gi; //i means ignorecase
+      if(!(key).match(letters)) e.preventDefault();
+	}
+    
+    function speclChar(key,e) {
+      var letters=/^[0-9a-z]/gi; 
+      if((key).match(letters)) e.preventDefault();
+	}
+    </script>
+</body>
+</html>
